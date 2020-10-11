@@ -86,7 +86,7 @@ let store = {
 			this._renderEntireTree(this._state);
 		}
 		else {
-			alert('Ошибка');
+			alert('Сообщение не должно быть пустым');
 		}
 	},
 	updatePostText(newText) {
