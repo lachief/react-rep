@@ -1,0 +1,9 @@
+.friends{
+	padding: 20px;
+	border-right: 2px solid white;
+	min-height: 100vh;
+}
+
+.friends a{
+	color: black;
+}

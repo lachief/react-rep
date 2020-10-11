@@ -1,0 +1,21 @@
+.post{
+	background: white;
+	border-radius: 20px;
+	padding: 20px;
+	margin-top: 20px;
+	box-shadow: 0 0 2px white;
+	width: 100%;
+}
+
+p.postLikes{
+	background: red;
+	padding: 5px;
+	margin-top: 10px;
+	border-radius: 10px;
+	display: inline-block;
+	color: white;
+	font-weight: 500;
+	box-shadow: 0 0 2px red;
+	font-size: 12px;
+	font-weight: 700;
+}

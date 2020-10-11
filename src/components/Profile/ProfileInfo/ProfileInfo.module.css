@@ -1,0 +1,25 @@
+.profileImage{
+	width: 100%;
+	height: 140px;
+	background: url('https://www.tokkoro.com/picsup/2852900-space-art-planet-multiple-display___cosmos-space-wallpapers.jpg') center no-repeat;
+	background-size: cover;
+}
+
+.userInfo{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.userInfo img{
+	border: 1px solid black;
+}
+.userInfo h2{
+	margin-top: 5px;
+}
+
+.profileUser{
+	display: flex;
+	padding: 20px;
+}
+

@@ -1,0 +1,15 @@
+.posts{
+	padding: 10px;
+}
+
+.newPost{
+	display: flex;
+	flex-direction: column;
+	margin-left: 40px;
+	align-items: center;
+}
+
+.newPost button{
+	margin-top: 10px;
+	width: 70px;
+}

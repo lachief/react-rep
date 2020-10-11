@@ -1,0 +1,15 @@
+.messages{
+	padding: 10px;
+    height: 100vh;
+}
+
+.messages__list{
+	background-color: white;
+	height: 100%;
+	padding: 10px;
+	overflow-y: scroll;
+	display: flex;
+	flex-direction: column;
+}
+
+

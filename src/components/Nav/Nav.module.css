@@ -1,0 +1,52 @@
+.navbar{
+	grid-area: sidebar;
+	background-color: #222;
+	display: flex;
+	flex-direction: column;
+	padding: 20px;
+}
+
+.navbar a{
+	color: white;
+	line-height: 30px;
+}
+
+a:hover{
+	font-size: 1.24em;
+}
+
+.active{
+	font-size: 1.24em;
+	font-weight: 600;
+}
+
+.sidebar{
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+	color: white;
+}
+
+.sidebar__item div{
+	height: 40px;
+	width: 40px;
+	background: lightseagreen;
+	border-radius: 50%;
+	text-align: center;
+}
+
+.sidebar__item{
+	margin-top: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.sidebar__item p{
+	margin-top: 10px;;
+	font-size: 10px;
+}
+
+.friends{
+	margin-top: 24px;
+	color: white;
+}
