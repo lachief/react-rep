@@ -74,26 +74,6 @@ let store = {
 		console.log('');
 	},
 	
-	addPost() {
-		if (this._state.profilePage.newPostText !== ''){
-			let newPost = {
-				id: this._state.profilePage.posts.length,
-				text: this._state.profilePage.newPostText,
-				likes: 0
-			}
-			this._state.profilePage.posts.push(newPost);
-			this._state.profilePage.newPostText = '';
-			this._renderEntireTree(this._state);
-		}
-		else {
-			alert('Сообщение не должно быть пустым');
-		}
-	},
-	updatePostText(newText) {
-		this._state.profilePage.newPostText = newText;
-		this._renderEntireTree(this._state);
-	},
-	
 	subscribe(observer) {
 		this._renderEntireTree = observer;
 	},
