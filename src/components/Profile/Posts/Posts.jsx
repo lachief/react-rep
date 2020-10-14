@@ -2,17 +2,30 @@ import React from 'react';
 import s from './Posts.module.css';
 import Post from './Post/Post';
 
+let addPostActionCreator = () => {
+	return {
+		type: 'ADD-POST'
+	}
+}
+
+let updateNewPostTextActionCreator = (text) => {
+	return {
+		type: 'UPDATE-NEW-POST-TEXT',
+		newText: text
+	}
+}
+
 const Posts = (props) => {
 	let postsList = props.posts.map(el => <Post post={el.text} likes={el.likes}/>);
 
 	const textAreaValue = React.createRef();
 	
 	const createNewPost = () => {
-		props.dispatch({type: 'ADD-POST'});
+		props.dispatch(addPostActionCreator());
 	}
 
 	let onPostChange = () => {
-		props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: textAreaValue.current.value});
+		props.dispatch(updateNewPostTextActionCreator(textAreaValue.current.value));
 	}
 
 
