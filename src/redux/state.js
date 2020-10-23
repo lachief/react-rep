@@ -1,3 +1,12 @@
+import profileReducer from './profile_reducer';
+import dialogsReducer from './dialogs_reducer';
+
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+const SEND_MESSAGE = 'SEND_MESSAGE';
+
 let store = {
 	_state: {
 		profilePage:{
@@ -67,8 +76,10 @@ let store = {
 				{
 					id: 5,
 					text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore libero tempora rem qui accusantium ea modi, fugiat corporis optio dolore, iste quisquam nisi laudantium voluptatibus assumenda soluta itaque in aliquam.'			}
-			]
-		}
+			],
+			newMessageText: ''
+		},
+		sidebar: {}
 	},
 	_renderEntireTree() {
 		console.log('');
@@ -81,7 +92,7 @@ let store = {
 		return this._state;
 	},
 	dispatch(action) {
-		if (action.type === 'ADD-POST'){
+		if (action.type === ADD_POST){
 			if (this._state.profilePage.newPostText !== ''){
 				let newPost = {
 					id: this._state.profilePage.posts.length,
@@ -95,13 +106,31 @@ let store = {
 			else {
 				alert('Сообщение не должно быть пустым');
 			}
-		} else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+		} else if (action.type === UPDATE_NEW_POST_TEXT) {
 			this._state.profilePage.newPostText = action.newText;
+			this._renderEntireTree(this._state);
+		} else if (action.type === UPDATE_NEW_MESSAGE_TEXT){
+			this._state.dialogsPage.newMessageText = action.newText;
+			this._renderEntireTree(this._state);
+		} else if (action.type === SEND_MESSAGE) {
+			let body = this._state.dialogsPage.newMessageText;
+			this._state.dialogsPage.messages.push({
+				id: this._state.dialogsPage.messages.length,
+				text: body
+			});
+			this._state.dialogsPage.newMessageText ='';
 			this._renderEntireTree(this._state);
 		}
 	},
-
+	
 }
 
+export const addPostActionCreator = () => ({type: ADD_POST})
+
+export const updateNewPostTextActionCreator = (text) => ({
+		type: UPDATE_NEW_POST_TEXT, newText: text})
+
+export const sendMessageCreator = () => ({type: SEND_MESSAGE});	
+export const updateNewMessageTextCreator = (text) => ({type: UPDATE_NEW_MESSAGE_TEXT, newText: text});	
 export default store;
 window.store = store;

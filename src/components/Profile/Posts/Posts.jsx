@@ -1,19 +1,8 @@
 import React from 'react';
 import s from './Posts.module.css';
 import Post from './Post/Post';
+import {addPostActionCreator, updateNewPostTextActionCreator} from './../../../redux/state';
 
-let addPostActionCreator = () => {
-	return {
-		type: 'ADD-POST'
-	}
-}
-
-let updateNewPostTextActionCreator = (text) => {
-	return {
-		type: 'UPDATE-NEW-POST-TEXT',
-		newText: text
-	}
-}
 
 const Posts = (props) => {
 	let postsList = props.posts.map(el => <Post post={el.text} likes={el.likes}/>);
