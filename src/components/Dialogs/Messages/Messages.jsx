@@ -5,22 +5,21 @@ import {sendMessageCreator, updateNewMessageTextCreator} from './../../../redux/
 
 const Messages = (props) => {
 
-
-	let state = props.store.getState().dialogsPage;
-	const messagesList = props.messagesList.map((el, index) => {
+	const messagesList = props.messages.map((el, index) => {
 		return <Message textMessage={el.text} key={el.index}/>
 	})
+	
 	const newMessageText = props.newMessageText;
 	const messageArea = React.createRef();
 	
 
 	let onSendMessageClick = () => {
-		props.store.dispatch(sendMessageCreator());
+		props.addMessage();
 	};
 
 	let onUpdateNewMessageText = (e) => {
 		let body = e.target.value;
-		props.store.dispatch(updateNewMessageTextCreator(body));
+		props.updateNewMessageText(body);
 	};
 
 	return(
