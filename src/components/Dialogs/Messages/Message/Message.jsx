@@ -5,9 +5,9 @@ const Message = (props) => {
 	
 	return(
 		<div className={s.message}>
-			<span className={s.message__item}>
+			<p className={s.message__item}>
 				{props.textMessage}
-			</span>
+			</p>
 		</div>
 	)
 }

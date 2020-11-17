@@ -1,16 +1,15 @@
-.message{
-    padding: 5px;
-    max-width: 60%;
+.message {
+  padding: 5px;
+  max-width: 60%;
 }
 
-.message__item{
-    display: inline-block;
-    padding: 10px;
-    margin-bottom: 15px;
-    background: #d6d6d6;
-    border-radius: 15px;
+.message__item {
+  padding: 10px;
+  margin-bottom: 15px;
+  background: #d6d6d6;
+  border-radius: 15px;
 }
 
-.message:nth-child(even){
-    align-self: flex-end;
+.message:nth-child(even) {
+  align-self: flex-end;
 }

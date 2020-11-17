@@ -14,4 +14,6 @@ let reducersBundle = combineReducers({
 // Создание Store
 let store = createStore(reducersBundle);
 
+window.store = store;
+
 export default store;

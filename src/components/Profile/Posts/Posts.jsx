@@ -21,7 +21,7 @@ const Posts = (props) => {
 		<div className={s.posts}>
 			<div className={s.newPost}>
 					<textarea ref={textAreaValue} onChange={onPostChange} value={props.newPostText} name="" id="" cols="30" rows="6"></textarea>
-					<button onClick={createNewPost}>Add post</button>
+					<button className={s.postButton} onClick={createNewPost}>Add post</button>
 			</div>
 			{postsList}
 		</div>
