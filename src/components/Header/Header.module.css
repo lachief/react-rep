@@ -1,15 +1,18 @@
-.header{
-	height: 60px;
-	background: #61DAFB;
-	grid-area: header;
-	display: flex;
-	align-items: center;
+.header {
+  background: #222;
+  grid-area: header;
+  padding-left: 20px;
 }
 
-.header img{
-	border-radius: 50%;
+.header img {
+  border-radius: 50%;
 }
 
-.header_image{
-	margin-left: 10px;
+.header__icon {
+  height: 60px;
+  width: 60px;
+  background-image: url('https://yt3.ggpht.com/a/AATXAJy6ibK8eU-i-7q3DAyOe929vKR-hqAsDf9ols_p=s900-c-k-c0xffffffff-no-rj-mo');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }

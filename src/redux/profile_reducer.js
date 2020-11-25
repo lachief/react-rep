@@ -25,28 +25,26 @@ let initialState = {
 const profileReducer = (state = initialState, action) =>{
     
     switch(action.type){
+
         case ADD_POST:{
-            let newState = {...state};
-            newState.posts = [...state.posts];
-            if (state.newPostText !== ''){
-                let newPost = {
+            return {
+                ...state,
+                posts: [...state.posts, {
                     id: state.posts.length,
                     text: state.newPostText,
                     likes: 0
-                }
-                newState.posts = [...state.posts];
-                newState.posts.push(newPost);
-                newState.newPostText = '';
-            } else {
-                alert('Сообщение не должно быть пустым');
+                }],
+                newPostText: ''
             };
-            return newState;
         }
+
         case UPDATE_NEW_POST_TEXT:{
-            let newState = {...state};
-            newState.newPostText = action.newText;
-            return newState;
+            return {
+                ...state, 
+                newPostText: action.newText
+            };
         }
+
         default: return state;
     
     }

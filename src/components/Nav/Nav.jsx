@@ -1,16 +1,17 @@
 import React from 'react';
 import s from './Nav.module.css';
 import {NavLink} from 'react-router-dom';
-
+ 
 const Nav = (props) => {
 	return(
 		<div className={s.navbar}>
-			<NavLink to="/profile" activeClassName={s.active}>Profile</NavLink>
-			<NavLink to="/dialogs" activeClassName={s.active}>Messages</NavLink>
-			<NavLink to="/news" activeClassName={s.active}>News</NavLink>
-			<NavLink to="/music" activeClassName={s.active}>Music</NavLink>
-			<NavLink to="/settings" activeClassName={s.active}>Settings</NavLink>
-			<h2 className={s.friends}>Friends</h2>
+			<NavLink to="/profile" activeClassName={s.active}><i className="fa fa-user-circle" aria-hidden="true"></i> Profile
+			</NavLink>
+			<NavLink to="/dialogs" activeClassName={s.active}><i class="fa fa-comments-o" aria-hidden="true"></i> Messages</NavLink>
+			<NavLink to="/news" activeClassName={s.active}><i class="fa fa-newspaper-o" aria-hidden="true"></i> News</NavLink>
+			<NavLink to="/music" activeClassName={s.active}><i class="fa fa-music" aria-hidden="true"></i> Music</NavLink>
+			<NavLink to="/settings" activeClassName={s.active}><i class="fa fa-cog" aria-hidden="true"></i> Settings</NavLink>
+			<NavLink to="/users" activeClassName={s.active}><h2 className={s.friends}><i class="fa fa-address-book" aria-hidden="true"></i> Friends</h2></NavLink>
 			<div className={s.sidebar}>
 				<div className={s.sidebar__item}>
 					<div></div>
