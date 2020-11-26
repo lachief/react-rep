@@ -1,0 +1,78 @@
+.user {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border: 1.2px solid rgb(173, 180, 187);
+  color: rgb(173, 180, 187);
+  width: 100%;
+  align-items: stretch;
+  margin-top: 10px;
+  background-color: whitesmoke;
+  flex-wrap: wrap;
+  border-radius: 5px;
+
+  &-info {
+    display: flex;
+    align-items: stretch;
+    color: slategray;
+  }
+
+  &-status {
+    max-width: 200px;
+    overflow-wrap: break-word;
+    overflow: hidden;
+  }
+
+  &-location {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    &__city {
+    }
+    &__country {
+      align-self: flex-end;
+      margin-top: 5px;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+  }
+}
+
+.user-intro {
+  display: flex;
+  flex-direction: column;
+  &__image {
+    height: 80px;
+    width: 80px;
+    background-color: whitesmoke;
+    border-radius: 50%;
+    background-size: contain;
+    background-position: center;
+  }
+}
+
+.username {
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  &__nickname {
+  }
+  &__name {
+  }
+  &__btn {
+    padding: 5px 20px;
+    margin-top: 10px;
+    font-family: inherit;
+    background-color: whitesmoke;
+    color: slategray;
+    outline: none;
+    border: 1px solid rgb(173, 180, 187);
+    cursor: pointer;
+    &:hover {
+      background-color: slategray;
+      color: white;
+    }
+  }
+}
