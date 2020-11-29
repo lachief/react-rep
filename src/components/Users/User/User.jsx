@@ -11,19 +11,16 @@ const User = (props) => {
         props.unfollow(props.id);
     }
 
-    const styles = {
-        backgroundImage: 'url(' + props.photo + ')'
-    }
 
     return(
         <div className='user'>
             <div className='user-info'>
                 <div className='user-intro'>
-                    <div className='user-intro__image' style={styles}></div>
+                    <div className='user-intro__image' ></div>
                 </div>
                 <div className='username'>
                     <div className='username__name'><h2>{props.name}</h2></div>
-                    <div className='username__nickname'><h4>@{props.nickname}</h4></div>
+                    <div className='username__nickname'><h4>@</h4></div>
                     {props.followed ? <button className='username__btn' onClick={ () => {unfollowUser()} }>Unfollow</button> : <button className='username__btn' onClick={ () => {followUser()} }>Follow</button>}
                 </div>
             </div>
@@ -31,8 +28,8 @@ const User = (props) => {
                 <i>{props.status}</i>
             </div> */}
             <div className='user-location'>
-                <div className='user-location__city'><h2>{props.location.city},</h2></div>
-                <div className='user-location__country'><h3>{props.location.country}</h3></div>
+                <div className='user-location__city'><h2>Moscow,</h2></div>
+                <div className='user-location__country'><h3>Russia</h3></div>
             </div>
         </div>
     )
