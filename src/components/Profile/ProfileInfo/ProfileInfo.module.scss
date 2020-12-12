@@ -8,12 +8,18 @@
 
 .userInfo {
   display: flex;
+}
+
+.userNameImage {
+  display: flex;
   flex-direction: column;
-  align-items: center;
+  width: 120px;
+  text-align: center;
 }
 
 .userInfo img {
   border: 1px solid black;
+  border-radius: 50%;
 }
 .userInfo h2 {
   margin-top: 5px;
@@ -22,4 +28,9 @@
 .profileUser {
   display: flex;
   padding: 20px;
+}
+
+.userDescription {
+  flex: 1 0 50%;
+  padding: 20px 10px;
 }

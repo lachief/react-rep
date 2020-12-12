@@ -1,7 +1,10 @@
 .header {
   background: #222;
   grid-area: header;
-  padding-left: 20px;
+  padding: 0px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .header img {
@@ -15,4 +18,22 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+}
+
+.loginBlock {
+  color: white;
+
+  a {
+    &:hover {
+      color: white;
+    }
+
+    &:active {
+      color: white;
+    }
+
+    &:visited {
+      color: white;
+    }
+  }
 }

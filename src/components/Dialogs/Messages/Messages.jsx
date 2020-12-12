@@ -6,7 +6,7 @@ import {sendMessageCreator, updateNewMessageTextCreator} from './../../../redux/
 const Messages = (props) => {
 
 	const messagesList = props.messages.map((el, index) => {
-		return <Message textMessage={el.text} key={el.index}/>
+		return <Message textMessage={el.text} key={el.id}/>
 	})
 	
 	const newMessageText = props.newMessageText;

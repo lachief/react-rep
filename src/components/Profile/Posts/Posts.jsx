@@ -1,10 +1,10 @@
 import React from 'react';
-import s from './Posts.module.css';
+import s from './Posts.module.scss';
 import Post from './Post/Post';
 
 
 const Posts = (props) => {
-	let postsList = props.posts.map(el => <Post post={el.text} likes={el.likes}/>);
+	let postsList = props.posts.map(el => <Post key={el.id} post={el.text} likes={el.likes}/>);
 
 	const textAreaValue = React.createRef();
 	

@@ -1,7 +1,6 @@
-$mainColor: #61DAFB;
+$mainColor: #61dafb;
 
-
-*{
+* {
   padding: 0;
   margin: 0;
   text-decoration: none;
@@ -10,19 +9,18 @@ $mainColor: #61DAFB;
   font-family: Arial;
 }
 
-.App{
+.App {
   max-width: 1200px;
   margin: 0 auto;
   display: grid;
-  grid-template-areas: 
-  'header header'
-  'sidebar content';
+  grid-template-areas:
+    'header header'
+    'sidebar content';
   grid-template-columns: 2fr 10fr;
   grid-template-rows: 60px 1fr;
-  grid-gap: 10px;
 }
 
-.content{
+.content {
   grid-area: 'content';
   min-height: 100vh;
   background: $mainColor;
@@ -30,6 +28,6 @@ $mainColor: #61DAFB;
   overflow-wrap: break-word;
 }
 
-textarea{
+textarea {
   resize: none;
 }

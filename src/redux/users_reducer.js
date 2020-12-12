@@ -3,12 +3,19 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 const CHANGE_PAGE = 'CHANGE_PAGE';
 const GET_TOTAL_USERS_COUNT = 'GET_TOTAL_USERS_COUNT';
+const TOGGLE_FETCHING = 'TOGGLE_FETCHING';
+const TOGGLE_FOLLOW_LOADING = 'TOGGLE_FOLLOW_LOADING';
 
 let initialState = {
     users: [],
-    totalUsersCount: 54,
+    totalUsersCount: 0,
     pageSize: 6,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: false,
+    followLoading: {
+        id: 0,
+        follow: false
+    }
 }
 
 const usersReducer = (state=initialState, action) => {
@@ -54,34 +61,56 @@ const usersReducer = (state=initialState, action) => {
                 ...state,
                 totalUsersCount: action.count
             })
+        case TOGGLE_FETCHING:
+            return ({
+                ...state,
+                isFetching: !state.isFetching
+            })
+        case TOGGLE_FOLLOW_LOADING:
+            return ({
+                ...state,
+                followLoading: {
+                    ...state.followLoading, 
+                    id: action.id, 
+                    follow: action.following,
+                }
+            })   
         default: return state;
     }
 }
 
-export const followAC = (userID) => ({
+export const follow = (userID) => ({
     type: FOLLOW,
     userID
 })
 
-export const unfollowAC = (userID) => ({
+export const unfollow = (userID) => ({
     type: UNFOLLOW,
     userID
 })
 
-export const setUsersAC = (users) => ({
+export const setUsers = (users) => ({
     type: SET_USERS,
     users
 })
 
-export const changePageAC = (page) => ({
+export const changePage = (page) => ({
     type: CHANGE_PAGE,
     page
 })
 
-export const getTotalUsersCountAC = (count) => ({
+export const getTotalUsersCount = (count) => ({
     type: GET_TOTAL_USERS_COUNT,
     count
 })
 
+export const toggleFetching = () => ({
+    type: TOGGLE_FETCHING
+})
 
+export const toggleFollowLoading = (id, following) => ({
+    type: TOGGLE_FOLLOW_LOADING,
+    id,
+    following
+})
 export default usersReducer;
