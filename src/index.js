@@ -11,7 +11,7 @@ import 'font-awesome/css/font-awesome.min.css';
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      <App state={store.getState()} dispatch={store.dispatch.bind(store)} store={store}/>
+      <App state={store.getState()}  store={store}/>
     </Provider>
   </BrowserRouter>,
   document.getElementById('root')

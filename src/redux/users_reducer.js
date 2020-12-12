@@ -1,140 +1,22 @@
 const FOLLOW = 'FOLLOW';
 const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
+const CHANGE_PAGE = 'CHANGE_PAGE';
+const GET_TOTAL_USERS_COUNT = 'GET_TOTAL_USERS_COUNT';
+const TOGGLE_FETCHING = 'TOGGLE_FETCHING';
+const TOGGLE_FOLLOW_LOADING = 'TOGGLE_FOLLOW_LOADING';
 
 let initialState = {
-    users: [
-    // {
-    //     id: 1,
-    //     name: "Leanne Graham",
-    //     username: "Bret",
-    //     email: "Sincere@april.biz",
-    //     location: {
-    //         city: "Gwenborough",
-    //         country: "USA"
-    //     },
-    //     status: 'Back to work',
-    //     follow: false,
-    //     photoURL: "https://via.placeholder.com/600/92c952"
-    // },
-    // {
-    //     id: 2,
-    //     name: "Ervin Howell",
-    //     username: "Antonette",
-    //     email: "Shanna@melissa.tv",
-    //     location: {
-    //         city: "Wisokyburgh",
-    //         country: "Russia"
-    //     },
-    //     status: 'I am home',
-    //     follow: false,
-    //     photoURL: "https://via.placeholder.com/600/771796"
-    // },
-    // {
-    //     id: 3,
-    //     name: "Clementine Bauch",
-    //     username: "Samantha",
-    //     email: "Nathan@yesenia.net",
-    //     location: {
-    //         city: "McKenziehaven",
-    //         country: "Belarus"
-    //     },
-    //     status: 'Let me alone',
-    //     follow: true,
-    //     photoURL: "https://via.placeholder.com/600/24f355"
-    // },
-    // {
-    //     id: 4,
-    //     name: "Patricia Lebsack",
-    //     username: "Karianne",
-    //     email: "Julianne.OConner@kory.org",
-    //     location: {
-    //         city: "South Elvis",
-    //         country: "Russia"
-    //     },
-    //     status: '',
-    //     follow: false,
-    //     photoURL: "https://via.placeholder.com/600/d32776"
-    // },
-    // {
-    //     id: 5,
-    //     name: "Chelsey Dietrich",
-    //     username: "Kamren",
-    //     email: "Lucio_Hettinger@annie.ca",
-    //     location: {
-    //         city: "Roscoeview",
-    //         country: "Russia"
-    //     },
-    //     status: 'Hello world',
-    //     follow: true,
-    //     photoURL: "https://via.placeholder.com/600/f66b97"
-    // },
-    // {
-    //     id: 6,
-    //     name: "Mrs. Dennis Schulist",
-    //     username: "Leopoldo_Corkery",
-    //     email: "Karley_Dach@jasper.info", 
-    //     location: {
-    //         city: "South Christy",
-    //         country: "Belarus"
-    //     },
-    //     status: '',
-    //     follow: false,
-    //     photoURL: "https://via.placeholder.com/600/56a8c2"
-    // },
-    // {
-    //     id: 7,
-    //     name: "Kurtis Weissnat",
-    //     username: "Elwyn.Skiles",
-    //     email: "Telly.Hoeger@billy.biz",
-    //     location: {
-    //         city: "Howemouth",
-    //         country: "Italy"
-    //     },
-    //     status: '',
-    //     follow: false,
-    //     photoURL: "https://via.placeholder.com/600/b0f7cc"
-    // },
-    // {
-    //     id: 8,
-    //     name: "Nicholas Runolfsdottir V",
-    //     username: "Maxime_Nienow",
-    //     email: "Sherwood@rosamond.me",
-    //     location: {
-    //         city: "Aliyaview",
-    //         country: "Bolgaria"
-    //     },
-    //     status: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias reprehenderit impedit aut, assumenda qui cupiditate dolorem! Nostrum mollitia incidunt fugiat illo. Deserunt, blanditiis eum! Fugiat non et maxime libero! Dolorum.',
-    //     follow: false,
-    //     photoURL: "https://via.placeholder.com/600/54176f"
-    // },
-    // {
-    //     id: 9,
-    //     name: "Glenna Reichert",
-    //     username: "Delphine",
-    //     email: "Chaim_McDermott@dana.io",
-    //     location: {
-    //         city: "Bartholomebury",
-    //         country: 'USA'
-    //     },
-    //     status: '',
-    //     follow: true,
-    //     photoURL: "https://via.placeholder.com/600/51aa97"
-    // },
-    // {
-    //     id: 10,
-    //     name: "Clementina DuBuque",
-    //     username: "Moriah.Stanton",
-    //     email: "Rey.Padberg@karina.biz",
-    //     location: {
-    //         country: "Russia",
-    //         city: "Lebsackbury"
-    //     },
-    //     status: '',
-    //     follow: false,
-    //     photoURL: "https://via.placeholder.com/600/810b14"
-    // }
-]}
+    users: [],
+    totalUsersCount: 0,
+    pageSize: 6,
+    currentPage: 1,
+    isFetching: false,
+    followLoading: {
+        id: 0,
+        follow: false
+    }
+}
 
 const usersReducer = (state=initialState, action) => {
     switch (action.type){
@@ -143,7 +25,10 @@ const usersReducer = (state=initialState, action) => {
                 ...state,
                 users: state.users.map(user => {
                     if (user.id === action.userID){
-                        return {...user, followed: true}
+                        return {
+                            ...user, 
+                            followed: true
+                        }
                     }
                     return user
                 })
@@ -153,7 +38,10 @@ const usersReducer = (state=initialState, action) => {
                 ...state,
                 users: state.users.map(user => {
                     if (user.id === action.userID){
-                        return {...user, followed: false}
+                        return {
+                            ...user, 
+                            followed: false
+                        }
                     }
                     return user
                 })
@@ -161,26 +49,68 @@ const usersReducer = (state=initialState, action) => {
         case SET_USERS:
             return ({
                 ...state,
-                users: [...state.users, ...action.users]
+                users: [...action.users]
             })
+        case CHANGE_PAGE:
+            return ({
+                ...state,
+                currentPage: action.page
+            })
+        case GET_TOTAL_USERS_COUNT:
+            return ({
+                ...state,
+                totalUsersCount: action.count
+            })
+        case TOGGLE_FETCHING:
+            return ({
+                ...state,
+                isFetching: !state.isFetching
+            })
+        case TOGGLE_FOLLOW_LOADING:
+            return ({
+                ...state,
+                followLoading: {
+                    ...state.followLoading, 
+                    id: action.id, 
+                    follow: action.following,
+                }
+            })   
         default: return state;
     }
 }
 
-export const followAC = (userID) => ({
+export const follow = (userID) => ({
     type: FOLLOW,
     userID
 })
 
-export const unfollowAC = (userID) => ({
+export const unfollow = (userID) => ({
     type: UNFOLLOW,
     userID
 })
 
-export const setUsersAC = (users) => ({
+export const setUsers = (users) => ({
     type: SET_USERS,
     users
 })
 
+export const changePage = (page) => ({
+    type: CHANGE_PAGE,
+    page
+})
 
+export const getTotalUsersCount = (count) => ({
+    type: GET_TOTAL_USERS_COUNT,
+    count
+})
+
+export const toggleFetching = () => ({
+    type: TOGGLE_FETCHING
+})
+
+export const toggleFollowLoading = (id, following) => ({
+    type: TOGGLE_FOLLOW_LOADING,
+    id,
+    following
+})
 export default usersReducer;

@@ -1,16 +1,22 @@
+
 import React from 'react';
-import s from './ProfileInfo.module.css';
+import Preloader from '../../../commons/Preloader';
+import s from './ProfileInfo.module.scss';
 
 const ProfileInfo = (props) => {
+	if (!props.profile) {
+		return <Preloader />
+	} 
 	return(
 		<div className={s.profileInfo}>
-			<div className={s.profileImage}>
-				
-			</div>
+			<div className={s.profileImage}></div>
 			<div className={s.profileUser}>
 				<div className={s.userInfo}>
-					<img src="https://yt3.ggpht.com/a/AATXAJwdL2n7p48TvAy8YTa0mBOr_8EseS2NqIchqCuoDg=s900-c-k-c0xffffffff-no-rj-mo" width="120px" height="120px" alt="dsa" />
-					<h2>Darth Vader</h2>
+					<div className={s.userNameImage}>
+						<img src={props.profile.photos.large} width="120px" height="120px" alt="dsa" />
+						<h2>{props.profile.fullName}</h2>
+					</div>
+					<div className={s.userDescription}><p>{props.profile.aboutMe}</p></div>
 				</div>
 			</div>
 		</div>
